@@ -10,8 +10,6 @@
 var express = require('express'),
     cors = require('cors'),
     secure = require('ssl-express-www');
-const PORT = process.env.PORT || 4000
-/* port edit sesukamu */
 
 var { color } = require('./renz/lib/color.js')
 var mainrouter = require('./routes/main'),
@@ -29,7 +27,7 @@ dokumentasi api anda*/
 app.use('/', mainrouter) // home
 app.use('/api', apirouter) // api
 
-app.listen(PORT, () => {
+app.listen(3000, () => {
     console.log(color("Server running on port " + PORT, 'green'))
 })
 
