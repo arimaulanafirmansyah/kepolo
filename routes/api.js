@@ -148,7 +148,7 @@ Akhir Pesan Error
 
 const listkey = ["amfcode", "trial", "ulung", "lucky"];
 
-router.post("/apikey", async (req, res, next) => {
+router.post("/apikey2323", async (req, res, next) => {
   const key = req.query.key;
   if (listkey.includes(key)) {
     res.json({
@@ -162,7 +162,7 @@ router.post("/apikey", async (req, res, next) => {
   }
 });
 
-router.get('/regapi', async (req, res, next) => {
+router.get('/regapiamf', async (req, res, next) => {
   const key = req.query.key;
   if (listkey.includes(key)) {
     res.json({
@@ -384,6 +384,58 @@ router.get('/stalk/ig', async (req, res, next) => {
     if (!username) return res.json({ status: false, creator: `${creator}`, message: "masukan parameter username" })
 
     fetch(encodeURI(`https://docs-jojo.herokuapp.com/api/stalk?username=${username}`))
+      .then(response => response.json())
+      .then(data => {
+        var result = data;
+        res.json({
+          status: true,
+          creator: `${creator}`,
+          result
+        })
+      })
+      .catch(e => {
+        res.json(loghandler.invalidusername)
+      })
+  } else {
+    res.json(loghandler.invalidKey)
+  }
+})
+
+router.get('/spam/sms', async (req, res, next) => {
+  var Apikey = req.query.apikey,
+    nohp = req.query.nohp
+
+  if (!Apikey) return res.json(loghandler.notparam)
+  if (listkey.includes(Apikey)) {
+    if (!nohp) return res.json({ status: false, creator: `${creator}`, message: "masukan parameter nohp" })
+
+    fetch(encodeURI(`https://amfcode.my.id/2api/private/asu.php?target=${nohp}`))
+      .then(response => response.json())
+      .then(data => {
+        var result = data;
+        res.json({
+          status: true,
+          creator: `${creator}`,
+          result
+        })
+      })
+      .catch(e => {
+        res.json(loghandler.invalidnohp)
+      })
+  } else {
+    res.json(loghandler.invalidKey)
+  }
+})
+
+router.get('/spam/call', async (req, res, next) => {
+  var Apikey = req.query.apikey,
+    nohp = req.query.nohp
+
+  if (!Apikey) return res.json(loghandler.notparam)
+  if (listkey.includes(Apikey)) {
+    if (!nohp) return res.json({ status: false, creator: `${creator}`, message: "masukan parameter nohp" })
+
+    fetch(encodeURI(`https://amfcode.my.id/2api/private/1?phone=${nohp}`))
       .then(response => response.json())
       .then(data => {
         var result = data;
