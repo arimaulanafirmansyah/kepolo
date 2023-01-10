@@ -29,6 +29,8 @@
     "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.5",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "emoji-api": "^3.0.1",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
@@ -37,13 +39,17 @@
     "morgan": "^1.10.0",
     "needle": "^2.6.0",
     "node-fetch": "^2.6.1",
+    "ra-api": "^1.2.7",
     "request": "^2.88.2",
     "scrape-yt": "^1.4.8",
+    "scraper": "^0.0.9",
     "ssl-express-www": "^3.0.7",
+    "tiktok": "^0.0.7",
+    "tiktok-scraper": "^1.4.36",
     "urlencode": "^1.1.0",
     "ytdl-core": "^4.4.5",
     "ytpl": "^2.0.5",
-    "ra-api": "^1.2.7"
+    "zrapi": "^0.0.6"
   },
   "homepage": "https://github.com/amiruldev20/exampleapi#readme"
 }
