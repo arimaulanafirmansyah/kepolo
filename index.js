@@ -1,21 +1,11 @@
-/*
-|=======================================|
-| NAME: EXAMPLE API                     |
-| VERSION: 0.0.1                        |
-| CREATOR: AMIRUL DEV                   |
-| WEB: WWW.AMIRULDEV.NET                |
-| TEMPLATE BY: MBAH AGUS                |
-|=======================================|
-*/
-var express = require('express'),
-    cors = require('cors'),
-    secure = require('ssl-express-www');
+import express from 'express'
+import cors from 'cors'
+import secure from 'ssl-express-www'
+import { color } from './renz/lib/color.js'
+import mainrouter from'./routes/main'
+import apirouter from './routes/api'
 
-var { color } = require('./renz/lib/color.js')
-var mainrouter = require('./routes/main'),
-    apirouter = require('./routes/api')
-
-var app = express()
+const app = express()
 app.enable('trust proxy');
 app.set("json spaces", 2)
 app.use(cors())
@@ -28,7 +18,5 @@ app.use('/', mainrouter) // home
 app.use('/api', apirouter) // api
 
 app.listen(3000, () => {
-    console.log(color("Server running on port " + PORT, 'green'))
+    console.log(color("Server running on port 3000" , 'green'))
 })
-
-module.exports = app
