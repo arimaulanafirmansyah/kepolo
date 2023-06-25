@@ -17,6 +17,6 @@ dokumentasi api anda*/
 app.use('/', mainrouter) // home
 app.use('/api', apirouter) // api
 
-app.listen(3000, () => {
-    console.log(color("Server running on port 3000" , 'green'))
+app.listen(4000, () => {
+    console.log(color("Server running on port 4000" , 'green'))
 })
